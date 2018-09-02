@@ -1,27 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Line : MonoBehaviour {
     float timeCounter = 0;
-    float velocidade = 5;
-    float x, y, z;
+    float speed = 1.0f;
+    float scale = 5.0f;
+    public Vector3 initialPos = new Vector3(-10.0f, 5.0f, 0.0f);
+    public Vector3 finalPos = new Vector3(-10.0f, -5.0f, 0.0f);
+    public Vector3 pos;
 
     void Start()
     {
+        drawControlPoint(initialPos);
+        drawControlPoint(finalPos);
 
+        pos = initialPos;
+        transform.position = pos;
     }
 
     void Update()
     {
-        transform.LookAt(new Vector3(x, y, z));
+        transform.LookAt(initialPos);
+        timeCounter += Time.deltaTime * speed;
+        
+        pos.y = scale * Mathf.Sin(timeCounter);
+        transform.position = pos;
+    }    
 
-        timeCounter += Time.deltaTime;
-        x = Mathf.Sin(timeCounter);
-        y = 0;
-        z = 0;
-
-        transform.position = new Vector3(x, y, z);
-
+    void drawControlPoint(Vector3 position)
+    {
+        var point = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        point.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        point.transform.position = position;
     }
 }
