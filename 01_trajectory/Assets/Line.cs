@@ -2,7 +2,7 @@
 
 public class Line : MonoBehaviour {
     float timeCounter = 0;
-    float speed = 1.0f;
+    float speed = 2.0f;
     float scale = 5.0f;
     public Vector3 initialPos = new Vector3(-10.0f, 5.0f, 0.0f);
     public Vector3 finalPos = new Vector3(-10.0f, -5.0f, 0.0f);
@@ -20,7 +20,7 @@ public class Line : MonoBehaviour {
     void Update()
     {
         transform.LookAt(initialPos);
-        timeCounter += Time.deltaTime * speed;
+        timeCounter += Time.deltaTime * (speed-0.01f);
         
         pos.y = scale * Mathf.Sin(timeCounter);
         transform.position = pos;
