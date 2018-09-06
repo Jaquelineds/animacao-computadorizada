@@ -3,23 +3,19 @@
 public class Spiral : MonoBehaviour
 {
     float timeCounter = 0;
-    float speed = 0.1f;
-    public Vector3 pos;
+    float scale = 0.01f;
+    float speed = 0.0f;
 
     void Start()
     {
-        pos = transform.position;
     }
 
     void Update()
     {
         timeCounter += Time.deltaTime;
-        pos.x = Mathf.Sin(timeCounter) * speed;
-        pos.y = Mathf.Cos(timeCounter) * speed;
-        transform.LookAt(pos);
-        pos.x++;
-        pos.y++;
-        transform.position = pos;
+        transform.position = new Vector3(transform.position.x + ((scale * Mathf.Sin(timeCounter)) * speed) + 0.01f, 
+                                         transform.position.y + ((scale *Mathf.Cos(timeCounter)) * speed), 0);
+        transform.LookAt(transform.position);
         speed -= 0.2f;
     }
 }

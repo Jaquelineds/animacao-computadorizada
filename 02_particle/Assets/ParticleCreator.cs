@@ -2,7 +2,7 @@
 
 public class ParticleCreator : MonoBehaviour {
 
-    float timeInSeconds = 5;
+    float timeInSeconds = 8;
     GameObject obj;
 
     void Start () {
@@ -10,10 +10,47 @@ public class ParticleCreator : MonoBehaviour {
 	}
 	
 	void Update () {
+        if (Input.GetKey(KeyCode.A))
+            defineA();
+        else if (Input.GetKey(KeyCode.B))
+            defineB();
+        else if (Input.GetKey(KeyCode.C))
+            defineC();
+        else
+            defineDefault();
+
+        Destroy(obj, timeInSeconds);
+    }
+
+    void defineDefault() {
         defineShape();
         definePosition();
-        //defineTrajectory();
-        Destroy(obj, timeInSeconds);
+        defineColor();
+        defineTrajectory();
+    }
+
+    void defineA()
+    {
+        obj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        obj.transform.position = new Vector3(-10, 0, -10);
+        obj.GetComponent<MeshRenderer>().material.color = new Color(0.0f, 1.0f, 1.0f, 1.0f);
+        obj.AddComponent<Circular>();
+    }
+
+    void defineB()
+    {
+        obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        obj.transform.position = new Vector3(-5, 5, -10);
+        obj.GetComponent<MeshRenderer>().material.color = new Color(0.8f, 0.0f, 1.0f, 1.0f);
+        obj.AddComponent<Spiral>();
+    }
+
+    void defineC()
+    {
+        obj = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        obj.transform.position = new Vector3(-2, -8, -12);
+        obj.GetComponent<MeshRenderer>().material.color = new Color(0.0f, 0.0f, 1.0f, 1.0f);
+        obj.AddComponent<Line>();
     }
 
     void  defineShape() {        
@@ -26,11 +63,17 @@ public class ParticleCreator : MonoBehaviour {
             obj = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
     }
 
+    void defineColor() {
+        obj.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0.0f, 1.0f), 
+                                                                    Random.Range(0.0f, 1.0f),
+                                                                    Random.Range(0.0f, 1.0f), 
+                                                                    1.0f);
+    }
+
     void definePosition() {
         float x = Random.Range(-15.0f, -5.0f);
-        float y = Random.Range(10.0f, -10.0f);
+        float y = Random.Range(-10.0f, 20.0f);
         obj.transform.position = new Vector3(x, y, 0);
-        obj.AddComponent<Rigidbody>();
     }
 
     void defineTrajectory() {
@@ -40,6 +83,6 @@ public class ParticleCreator : MonoBehaviour {
         else if (trajectory > 0.3 && trajectory <= 0.6)
             obj.AddComponent<Spiral>();
         else
-            obj.AddComponent<Line>();        
+            obj.AddComponent<Circular>();        
     }
 }
