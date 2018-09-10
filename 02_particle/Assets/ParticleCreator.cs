@@ -6,7 +6,6 @@ public class ParticleCreator : MonoBehaviour {
     GameObject obj;
 
     void Start () {
-		
 	}
 	
 	void Update () {

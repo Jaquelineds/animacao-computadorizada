@@ -17,5 +17,8 @@ public class Circular : MonoBehaviour
         transform.position = new Vector3(transform.position.x +  (scale * Mathf.Sin(timeCounter) * speed),
                                          transform.position.y + (scale * Mathf.Cos(timeCounter) * speed), 0);
         transform.LookAt(transform.position);
+
+        if (timeCounter > 5)
+            GetComponent<Renderer>().material.color = Color.blue;
     }
 }

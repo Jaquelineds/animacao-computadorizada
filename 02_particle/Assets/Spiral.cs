@@ -17,5 +17,8 @@ public class Spiral : MonoBehaviour
                                          transform.position.y + ((scale *Mathf.Cos(timeCounter)) * speed), 0);
         transform.LookAt(transform.position);
         speed -= 0.2f;
+
+        if (timeCounter > 3)
+            GetComponent<Renderer>().material.color = Color.magenta;
     }
 }
