@@ -5,7 +5,7 @@ public class ParticleCreator : MonoBehaviour {
     float timeInSeconds = 8;
     GameObject obj;
 
-    void Start () {
+    void Start () { 
 	}
 	
 	void Update () {
