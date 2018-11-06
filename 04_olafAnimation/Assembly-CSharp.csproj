@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{78A6C7DE-D15C-5FC5-CD22-F79B6819E0F8}</ProjectGuid>
+    <ProjectGuid>{6EAA838F-2B65-6E18-19E3-961587FD4694}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,16 +55,16 @@
   <ItemGroup>
      <Compile Include="Assets\KeyBehaviour.cs" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>C:/Users/Jaqueline/Documents/GitHub/Animação Computadorizada/animacao-computadorizada/olaf/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>C:/Users/Jaqueline/Documents/GitHub/Animação Computadorizada/animacao-computadorizada/04_olafAnimation/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/Jaqueline/Documents/GitHub/Animação Computadorizada/animacao-computadorizada/olaf/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/Jaqueline/Documents/GitHub/Animação Computadorizada/animacao-computadorizada/04_olafAnimation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Jaqueline/Documents/GitHub/Animação Computadorizada/animacao-computadorizada/olaf/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>C:/Users/Jaqueline/Documents/GitHub/Animação Computadorizada/animacao-computadorizada/04_olafAnimation/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Jaqueline/Documents/GitHub/Animação Computadorizada/animacao-computadorizada/olaf/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/Jaqueline/Documents/GitHub/Animação Computadorizada/animacao-computadorizada/04_olafAnimation/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

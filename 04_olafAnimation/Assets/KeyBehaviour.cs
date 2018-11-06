@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
-public class KeyBehaviour :  MonoBehaviour {
+public class KeyBehaviour : MonoBehaviour {
 
     public Animator anim;
     int index = -1;
@@ -12,28 +13,42 @@ public class KeyBehaviour :  MonoBehaviour {
     }
     // Update is called once per frame
     void Update()
-    {        
+    {
         if (Input.GetKeyDown(KeyCode.Space))
-            changeAnimation();
+            ChangeAnimation();
         if (Input.GetKeyDown(KeyCode.R))
-            restartAnimation();
+            RestartAnimation();
         if (Input.GetKeyDown(KeyCode.B))
-            backAnimation();
+            BackAnimation();
+        if (Input.GetKeyDown(KeyCode.L))
+            AllAnimations();
     }
-    void changeAnimation() {
+    void ChangeAnimation() {
         if (index == anim.runtimeAnimatorController.animationClips.Length - 1)
-            index = -1;
+            RestartAnimation();
         else
             anim.Play(anim.runtimeAnimatorController.animationClips[++index].name);
         Debug.Log("Animação atual: " + anim.runtimeAnimatorController.animationClips[index].name);
     }
 
-    void restartAnimation() {
-        index = 0;
+    void AllAnimations() {
+        while (index < anim.runtimeAnimatorController.animationClips.Length - 1) {
+            anim.Play(anim.runtimeAnimatorController.animationClips[++index].name);
+            Debug.Log("Animação atual: " + anim.runtimeAnimatorController.animationClips[index - 1].averageDuration);
+            WaitForAnimation(anim.runtimeAnimatorController.animationClips[++index].averageDuration);
+        }
     }
-    void backAnimation()
+
+    void RestartAnimation() {
+        index = -1;
+    }
+    void BackAnimation()
     {
         index--;
     }
+    private IEnumerator WaitForAnimation(float time)
+    {
+        yield return new WaitForSeconds(time);
 
+    }
 }
